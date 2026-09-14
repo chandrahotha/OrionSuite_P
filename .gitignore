@@ -1,0 +1,51 @@
+# Orion Showcase - source-leakage guardrails
+# This repo must NEVER contain proprietary implementation.
+# Blocklist: fail closed if any of these ever appear.
+
+# Python source / build
+*.py
+*.pyc
+*.pyo
+__pycache__/
+src/
+tests/
+rules/
+build/
+dist-private/
+*.egg-info/
+.venv/
+venv/
+
+# Proprietary build internals
+orion.spec
+pyproject.toml
+setup.py
+setup.cfg
+
+# Secrets / credentials - never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.pfx
+*.p12
+# Secret-looking files. Only file shapes are blocked here (docs may
+# discuss secrets in prose, so bare words are intentionally not matched).
+secrets.json
+*secret*.json
+*secret*.yaml
+*secret*.yml
+ai_config.json
+.orion/
+.orion-feedback.json
+opencode.json
+
+# Local artifacts
+*.log
+*.tmp
+ORION SCANNER REPORTS/
+orion-report/
+/reports/
+*.orion.bak

@@ -1,0 +1,39 @@
+{
+  "_note": "Illustrative redacted shape, not a real finding dump. Field names follow the SARIF/JSON report family described in docs/REPORTS.md.",
+  "tool": {
+    "name": "Orion Engine Suite",
+    "version": "0.9.1",
+    "distribution": "@orionscanner/cli"
+  },
+  "target": "src/example.REDACTED",
+  "summary": {
+    "enginesActive": 77,
+    "critical": 1,
+    "high": 2,
+    "medium": 4,
+    "low": 9,
+    "total": 16
+  },
+  "findings": [
+    {
+      "ruleId": "EXAMPLE-REDACTED",
+      "severity": "high",
+      "message": "Illustrative redacted finding.",
+      "location": {
+        "file": "src/example.REDACTED",
+        "line": 42
+      },
+      "engine": "EXAMPLE-ENGINE"
+    },
+    {
+      "ruleId": "EXAMPLE-REDACTED",
+      "severity": "medium",
+      "message": "Illustrative redacted finding.",
+      "location": {
+        "file": "src/example.REDACTED",
+        "line": 7
+      },
+      "engine": "EXAMPLE-ENGINE"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+ORION ENGINE SUITE - PROPRIETARY LICENSE
+
+Copyright (c) Chandra Hotha. All rights reserved.
+
+This repository is a product showcase and documentation repository.
+It does not contain the Orion Engine implementation, and no source-code
+license is granted by this repository.
+
+Permitted:
+- Reading the documentation and examples in this repository.
+- Installing and running Orion exclusively via the official public
+  npm distribution (@orionscanner/cli) under its published terms.
+
+Not permitted:
+- Copying, reverse-engineering, or reconstructing the Orion Engine
+  implementation from this repository (it is not present here).
+- Representing Orion as open-source software.
+- Republishing or redistributing the compiled binaries outside the
+  official npm distribution channel.
+
+The compiled binaries distributed via @orionscanner/cli are licensed
+separately as proprietary software. Contact the maintainer for
+commercial licensing questions.

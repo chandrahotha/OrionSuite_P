@@ -1,0 +1,10 @@
+ORION ENGINE SUITE - illustrative scan output (redacted, not from a real codebase)
+
+$ orion . --security
+  Target: .
+  Engines: 77 active
+  Total Findings: 7 (illustrative)
+  Reports written to ORION SCANNER REPORTS/
+
+CRITICAL   EXAMPLE-REDACTED   src/example.REDACTED:1   redacted description
+HIGH       EXAMPLE-REDACTED   src/example.REDACTED:2   redacted description

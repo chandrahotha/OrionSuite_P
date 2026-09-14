@@ -1,0 +1,53 @@
+name: orion-scan-example
+
+# Consumes the official npm binary. No source checkout of the engine,
+# no Python toolchain, no secrets required.
+#
+# Behavior you can rely on (see orion --help on the installed version):
+# - Reports are written to the "ORION SCANNER REPORTS/" folder,
+#   including a SARIF file for code scanning.
+# - The scan exits non-zero when critical/high findings are present,
+#   so the job below fails the build on severe findings by default.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  orion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history powers --incremental / --diff scans.
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install -g @orionscanner/cli
+      - run: orion --version
+
+      # Full security sweep of the checkout.
+      - name: Orion full security scan
+        run: orion . --security
+
+      # Changed-files-only sweep on PRs for fast feedback.
+      - name: Orion incremental scan (PRs)
+        if: github.event_name == 'pull_request'
+        run: orion . --incremental --security
+
+      - name: Upload scan reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: orion-reports-${{ github.run_id }}
+          path: ORION SCANNER REPORTS/
+          retention-days: 30
+
+      - name: Upload SARIF to code scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          # upload-sarif accepts a directory: every *.sarif file inside
+          # ORION SCANNER REPORTS/ is uploaded.
+          sarif_file: ORION SCANNER REPORTS/
+          category: orion-engine-suite

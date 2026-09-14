@@ -1,0 +1,7 @@
+{
+  "target": ".",
+  "report": ["html", "json", "sarif"],
+  "incremental": true,
+  "failOn": "high",
+  "_note": "Safe example only. Never commit real credentials or internal paths."
+}
